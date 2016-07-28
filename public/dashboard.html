@@ -188,7 +188,7 @@
 
                             <div class="content">
                             <div id="loginStatus">Something</div>
-                                <form onsubmit="return addContact(this)">
+                                <form onsubmit="return addContact(event)">
                                     UserName: <input type="text" name="username"><br>
                                     <input type="submit" value="Submit">
                                 </form>
@@ -420,11 +420,16 @@
         firebase.initializeApp(config);
         var db = firebase.database();
 
-        function addContact(username) {
-            db.ref().child('wernerPlayAround').push({
-            username: username,
+        function addContact(evt) {
+            var uid = firebase.auth().currentUser.uid;
+            var form = evt.target;
+            var username = form.username.value;
+            db.ref().child('wernerPlayAround').child(uid).push({
+                username: username,
             //availableTime: availableTime
             });
+            evt.preventDefault();
+            return false;
         }
 
         //Login Status
