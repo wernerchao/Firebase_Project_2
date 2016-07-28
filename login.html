@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Creative - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap Core CSS -->
+    <!--<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">-->
+
+    <!-- Custom Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <!--<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">-->
+
+    <!-- Plugin CSS -->
+    <!--<link rel="stylesheet" href="css/magnific-popup.css" type="text/css">-->
+
+    <!-- Custom CSS -->
+    <!--<link rel="stylesheet" href="css/creative.css" type="text/css">-->
+    <!--<link rel="stylesheet" href="css/wernerCustom.css" type="text/css">-->
+</head>
+
+<body>
+    <div id="loginStatus">Not logged in</div>
+    <form onsubmit="return createUser(this)">
+        <h3>Create User</h3>
+        <label>登入請輸入email和密碼：</label>
+        <br></br>
+        <input type="text" id="email" name="email" placeholder="email" required>
+        <br></br>
+        <input type="password" id="password" name="password" placeholder="password" required>
+        <br></br>
+        <button type='submit'>登入</button>
+    </form>
+    <form onsubmit="return loginUser(this)">
+        <h3>Login User</h3>
+        <label>登入請輸入email和密碼：</label>
+        <br></br>
+        <input type="text" id="email" name="email" placeholder="email" required>
+        <br></br>
+        <input type="password" id="password" name="password" placeholder="password" required>
+        <br></br>
+        <button type='submit'>登入</button>
+    </form>
+    <!--Firebase-->
+    <!--<script src="jquery-2.1.0.min.js"></script>-->
+    <!--<script src="dist/js/bootstrap.js"></script>-->
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCTAD_8dK9w5MYRvPNbHr7isUGcIZNtDrU",
+            authDomain: "project-3373896903953203314.firebaseapp.com",
+            databaseURL: "https://project-3373896903953203314.firebaseio.com",
+            storageBucket: "project-3373896903953203314.appspot.com",
+        };
+        //Basic Firebase Saving Data
+        firebase.initializeApp(config);
+        var db = firebase.database();
+
+        function createUser(form) {
+            var email = form["email"].value;
+            var password = form["password"].value;
+
+            var user = firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                alert("Error: " + errorMessage);
+                // ...
+            });
+
+            /*db.ref.auth()({
+            username: username,
+            password: password
+            }, function(error, authData) {
+            if (error) {
+                console.log("Login Failed!", error);
+            } else {
+                console.log("Authenticated successfully with payload:", authData);
+            }
+            });*/
+
+            /*db.ref().child('wernerPlayAround3').push({
+            username: username,
+            password: password
+            });*/
+
+            return false;
+        }
+
+        function loginUser(form) {
+            var email = form["email"].value;
+            var password = form["password"].value;
+
+            var user = firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                alert("Error: " + errorMessage);
+                // ...
+            });
+            return false;
+        }
+
+        function logoutUser() {
+            firebase.auth().signOut().then(function() {
+                alert("Sign-out successful.");
+            }, function(error) {
+                alert("An error happened.");
+            });
+        }
+
+        firebase.auth().onAuthStateChanged(function (user) {
+            var statusDiv = document.getElementById("loginStatus");
+            if (user) {
+                statusDiv.innerHTML = user.email + "<input type='button' value='Log out' onclick='logoutUser()'></input>";
+            } else {
+                // show login page
+                statusDiv.innerHTML = "Not logged in";
+            }
+        })
+        </script>
+</body>
+
+</html>
