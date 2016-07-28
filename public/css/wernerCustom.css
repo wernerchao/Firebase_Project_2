@@ -1,0 +1,40 @@
+
+.section-heading {
+    color: black;
+}
+
+.text-faded {
+    color: black;
+}
+
+.btn {
+    background-color: #f05f40;
+}
+
+hr.light {
+    border-color: #f05f40;
+}
+
+＃about{
+    color: black;
+}
+
+#login-body {
+    background-color: #f05f40;
+}
+
+.navbar-inverse {
+    background-color: transparent;
+}
+
+.navbar-inverse .navbar-nav > .active > a {
+    background-color: #f05f40;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover {
+    color: black;
+}
+
+.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
+    color: black;
+}

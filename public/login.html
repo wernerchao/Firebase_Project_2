@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Creative - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap Core CSS -->
+    <!--<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">-->
+
+    <!-- Custom Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <!--<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">-->
+
+    <!-- Plugin CSS -->
+    <!--<link rel="stylesheet" href="css/magnific-popup.css" type="text/css">-->
+
+    <!-- Custom CSS -->
+    <!--<link rel="stylesheet" href="css/creative.css" type="text/css">-->
+    <!--<link rel="stylesheet" href="css/wernerCustom.css" type="text/css">-->
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+
+</head>
+
+<body>
+    
+    <!--Facebook Canvas SDK -->
+    <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+        appId      : '548692905319080',
+        xfbml      : true,
+        version    : 'v2.7'
+        });
+    
+    // Place following code after FB.init call.
+        function onLogin(response) {
+            if (response.status == 'connected') {
+                FB.api('/me?fields=first_name', function(data) {
+                var welcomeBlock = document.getElementById('fb-welcome');
+                welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
+                });
+            }
+        }
+
+        FB.getLoginStatus(function(response) {
+        // Check login status on load, and if the user is
+        // already logged in, go directly to the welcome message.
+            if (response.status == 'connected') {
+                onLogin(response);
+            } else {
+                // Otherwise, show Login dialog first.
+                FB.login(function(response) {
+                onLogin(response);
+                }, {scope: 'user_friends, email'});
+            }
+        });
+
+    // ADD ADDITIONAL FACEBOOK CODE HERE
+    };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        //Get permission from users to get their information [Facebook Provider Object]
+        var provider = new firebase.auth.FacebookAuthProvider();
+        provider.addScope('user_birthday');
+        provider.addScope('education_history');
+        provider.addScope('user_likes');
+        provider.addScope('user_location');
+        provider.addScope('user_friends');
+
+        function fbSignin() {
+            firebase.auth().signIOnWithRedirect(provider);
+            firebase.auth().getRedirectResult().then(function(result) {
+                if (result.credential) {
+                    // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+                    var token = result.credential.accessToken;
+                    // ...
+                }
+                // The signed-in user info.
+                var user = result.user;
+            }).catch(function(error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                // The email of the user's account used.
+                var email = error.email;
+                // The firebase.auth.AuthCredential type that was used.
+                var credential = error.credential;
+                // ...
+                });
+        }
+
+
+    </script>
+
+    
+
+    <!-- Log In Starts Here -->
+    <div id="loginStatus">Not logged in</div>
+    <form onsubmit="return createUser(this)">
+        <h3>Create User</h3>
+        <label>登入請輸入email和密碼：</label>
+        <br></br>
+        <input type="text" id="email_new" name="email" placeholder="email" required>
+        <br></br>
+        <input type="password" id="password_new" name="password" placeholder="password" required>
+        <br></br>
+        <button type='submit'>登入</button>
+    </form>
+    <form onsubmit="return loginUser(this)">
+        <h3>Login User</h3>
+        <label>登入請輸入email和密碼：</label>
+        <br></br>
+        <input type="text" id="email" name="email" placeholder="email" required>
+        <br></br>
+        <input type="password" id="password" name="password" placeholder="password" required>
+        <br></br>
+        <button type='submit'>登入</button>
+    </form>
+
+        <h3>Facebook Login</h3>
+        <label>Use Facebook To Login</label>
+        <button type='submit' onclick="fbSignin()">登入</button>
+    
+    <!--FIREBASE-->
+    <!--<script src="dist/js/bootstrap.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+    //Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCTAD_8dK9w5MYRvPNbHr7isUGcIZNtDrU",
+            authDomain: "project-3373896903953203314.firebaseapp.com",
+            databaseURL: "https://project-3373896903953203314.firebaseio.com",
+            storageBucket: "project-3373896903953203314.appspot.com",
+        };
+        //Firebase Create New User
+        firebase.initializeApp(config);
+        var db = firebase.database();
+        function createUser(form) {
+            var email = form["email_new"].value;
+            var password = form["password_new"].value;
+            var user = firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                alert("Error: " + errorMessage);
+                // ...
+            });
+            return false;
+            $('#email_new').val('');
+            $('#password_new').val('');
+        }
+        
+        //Firebase Login Exisiting User
+        function loginUser(form) {
+            var email = form["email"].value;
+            var password = form["password"].value;
+            var user = firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                alert("Error: " + errorMessage);
+                // ...
+            });
+            return false;
+
+        }
+        
+        //Firebaes Lougout User
+        function logoutUser() {
+            firebase.auth().signOut().then(function() {
+                alert("Sign-out successful.");
+            }, function(error) {
+                alert("An error happened.");
+            });
+        }
+        
+        //Login Status
+        firebase.auth().onAuthStateChanged(function (user) {
+            var statusDiv = document.getElementById("loginStatus");
+            if (user) {
+                //document.location.href('404.html');
+                window.open('dashboard.html');
+                statusDiv.innerHTML = user.email + "<input type='button' value='Log out' onclick='logoutUser()'></input>";
+            } else {
+                // show login page
+                statusDiv.innerHTML = "Not logged in";
+            }
+        })
+
+        //Clear input field when form is submitted
+        $('form').on('submit', function() {
+            $('#email_new').val('');
+            $('#password_new').val('');
+            $('#email').val('');
+            $('#password').val('');
+
+        });
+        </script>
+</body>
+
+</html>
