@@ -82,7 +82,7 @@
         provider.addScope('user_friends');
 
         function fbSignin() {
-            firebase.auth().signIOnWithRedirect(provider);
+            firebase.auth().signInWithRedirect(provider);
             firebase.auth().getRedirectResult().then(function(result) {
                 if (result.credential) {
                     // This gives you a Facebook Access Token. You can use it to access the Facebook API.
@@ -109,6 +109,7 @@
     
 
     <!-- Log In Starts Here -->
+    <a href='index.html'>首頁</a>
     <div id="loginStatus">Not logged in</div>
     <form onsubmit="return createUser(this)">
         <h3>Create User</h3>
@@ -179,7 +180,7 @@
 
         }
         
-        //Firebaes Lougout User
+        //Firebaes Logout User
         function logoutUser() {
             firebase.auth().signOut().then(function() {
                 alert("Sign-out successful.");
@@ -192,8 +193,8 @@
         firebase.auth().onAuthStateChanged(function (user) {
             var statusDiv = document.getElementById("loginStatus");
             if (user) {
-                //document.location.href('404.html');
-                window.open('dashboard.html');
+                document.location.href = 'dashboard.html';
+                //window.open('dashboard.html');
                 statusDiv.innerHTML = user.email + "<input type='button' value='Log out' onclick='logoutUser()'></input>";
             } else {
                 // show login page
