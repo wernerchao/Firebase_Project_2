@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
@@ -181,15 +181,15 @@
             <div class="container-fluid">
                 <div class="row">
 
-                    <div class="col-xs-5">
+                    <div class="col-xs-4">
                         <div class="card">
                             <div class="content">
                             <div id="loginStatus">Something</div>
-                            <form onsubmit="return addContact(event)">
+                            <form onsubmit="return addUsername(event)">
                                     UserName: <input type="text" name="username"><br>
                                     <input type="submit" value="Submit">
-                                </form>
-                                <form onsubmit="return addContact(event)">
+                            </form>
+                                <form id='form1' onsubmit="return addSchedule(event)">
                                     這週有空的時間: <br>
                                     星期一 <br>
                                     上午 <br/>
@@ -215,10 +215,10 @@
                         </div>
                     </div>
 
-                    <div class="col-xs-5">
+                    <div class="col-xs-4">
                         <div class="card">
                             <div class="content">
-                                <form onsubmit="return addContact(event)">
+                                <form onsubmit="return addSchedule(event)">
                                     星期二 <br>
                                     上午 <br/>
                                     8:00~9:00 <input type="checkbox" name="availableTimeTu" value='1'><br>
@@ -239,6 +239,15 @@
                                     23:00~24:00 <input type="checkbox" name="availableTimeTu" value='15'><br>
                                     <input type="submit" value="Submit">
                                 </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-4">
+                        <div class="card">
+                            <div class="content">
+                                <button type='button' onclick='retrieveSchedule()'>Retrieve Schedule</button>
+                                <div id='weeklySchedule'></div>
                             </div>
                         </div>
                     </div>
@@ -473,16 +482,53 @@
         firebase.initializeApp(config);
         var db = firebase.database();
 
-        function addContact(event) {
-            var uid = firebase.auth().currentUser.uid;
+        function addUsername(event) {
+            var uid = firebase.auth().currentUser.uid
             var form = event.target;
-            var availableTime = form.availableTimeM.value;
-            db.ref().child('wernerPlayAround').child(uid).push({
-            //username: username,
-            availableTime: availableTime
+            var username = form.username.value;
+
+            db.ref().child(uid).set({
+            username: username,
+            uid: uid
             });
             event.preventDefault();
             return false;
+        }
+
+        function addSchedule(event) {
+            var uid = firebase.auth().currentUser.uid
+            var form = event.target;
+            var availableTime = form.availableTimeM;
+            //var newArray = [];
+            var availableTimeM = [];
+            //for availableTime.length
+            for (i=0; i < availableTime.length; i++){
+                //  var input = availableTimeM[i];
+                var checkedAvailableTimeM = availableTime[i];
+                //if input.checked
+                if (checkedAvailableTimeM.checked) {
+                    //newArray.push(input.value)
+                    availableTimeM.push(checkedAvailableTimeM.value);
+                }
+            }
+            db.ref().child(uid).child('thisWeekSchedule').set({
+            availableTime: availableTimeM //newArray
+            });
+            event.preventDefault();
+            return false;
+        }
+
+        // Attach an asynchronous callback to read the data at our posts reference
+        function retrieveSchedule() {
+            var uid = firebase.auth().currentUser.uid;
+            db.ref().orderByChild('uid').equalTo(uid).on("child_added", function(snapshot) {
+                console.log(snapshot.val());
+                //console.log(snapshot.val().availableTime);
+                $('#weeklySchedule').append(snapshot.val().username);
+                $('#weeklySchedule').append(snapshot.val().thisWeekSchedule.availableTime);
+                }, function (errorObject) {
+                console.log("The read failed: " + errorObject.code);
+            });
         }
 
         //Login Status
