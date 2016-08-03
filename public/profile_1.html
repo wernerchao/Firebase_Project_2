@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Creative - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="assets_1/css/bootstrap.min.css" type="text/css">
+
+    <!-- Custom Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <!--<link rel="stylesheet" href="assets_1/font-awesome/css/font-awesome.min.css" type="text/css">-->
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="assets_1/css/magnific-popup.css" type="text/css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets_1/css/creative.css" type="text/css">
+    <link rel="stylesheet" href="assets_1/css/wernerCustom.css" type="text/css">
+</head>
+
+<body id="page-top">
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a id="home-text" class="navbar-brand page-scroll" href="index.html">明奈線上日文</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a id="about-text" href="#about">學日文</a>
+                    </li>
+                    <li>
+                        <a id="services-text" href="#services">我們是誰</a>
+                    </li>
+                    <li>
+                        <a id="portfolio-text" href="#portfolio">老師陣容</a>
+                    </li>
+                    <li>
+                        <a id="contact-text" href="#contact">開始預約老師</a>
+                    </li>
+                    <li id='listLoginStatus'>
+                        <a id='loginStatus' href="login.html">登入</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!--<header id='headerBackgroundImage'>
+            <div class="header-content">
+                <div class="header-content-inner">
+                    <h1>不要只學習日文</h1>
+                    <hr>
+                    <h2>學習日本的文化</h2>
+                    <h2>用日本人的方法</h2>
+                    <a href="#about" class="btn btn-primary btn-xl page-scroll">認識更多</a>
+                </div>
+            </div>
+    </header>
+
+    <section class="bg-primary" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">開始學吧</h2>
+                    <hr class="light">
+                    <p class="text-faded">找一個最適合你的老師</p>
+                    <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">開始學習</a>
+                </div>
+            </div>
+        </div>
+    </section>-->
+
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading" id='nickName'></h2>
+                    <!--<h2 class="section-heading">Akina Kozawa Sensei</h2>-->
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-diamond text-primary sr-icons"></i>
+                        <img id='profilePic' src='assets_1/img/teacher1_profile_pic.jpg'>
+                        <h3 id="experience">經驗： </h3>
+                        <p id='selfIntro' class="text-muted"></p>
+                        <a href="dashboard.html" class="btn btn-default btn-xl sr-button">預約老師</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--<section class="no-padding" id="portfolio">
+        <div class="container-fluid">
+            <div class="row no-gutter popup-gallery">
+                <div class="col-lg-4 col-sm-6">
+                    <a href="#" class="portfolio-box"> 
+                        <img src="assets_1/img/portfolio/thumbnails/teacher1_Fotor.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="assets_1/img/portfolio/fullsize/teacher1_Fotor_FullSize.jpg" class="portfolio-box">
+                        <img src="assets_1/img/portfolio/thumbnails/teacher1_Fotor.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="assets_1/img/portfolio/fullsize/teacher1_Fotor_FullSize.jpg" class="portfolio-box">
+                        <img src="assets_1/img/portfolio/thumbnails/teacher1_Fotor.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="assets_1/img/portfolio/fullsize/teacher2_Fotor_FullSize.jpg" class="portfolio-box">
+                        <img src="assets_1/img/portfolio/thumbnails/teacher2_Fotor.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="assets_1/img/portfolio/fullsize/5.jpg" class="portfolio-box">
+                        <img src="assets_1/img/portfolio/thumbnails/5.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="assets_1/img/portfolio/fullsize/6.jpg" class="portfolio-box">
+                        <img src="assets_1/img/portfolio/thumbnails/6.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <aside class="bg-dark">
+        <div class="container text-center">
+            <div class="call-to-action">
+                <h2>Free Download at Start Bootstrap!</h2>
+                <a href="http://startbootstrap.com/template-overviews/creative/" class="btn btn-default btn-xl sr-button">Download Now!</a>
+            </div>
+        </div>
+    </aside>
+
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">預約老師!</h2>
+                    <hr class="primary">
+                        <form>
+                        <fieldset class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="輸入 email">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="exampleInputPassword1">電話號碼</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="電話號碼">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="exampleSelect1">從哪裡知道我們的？</label>
+                            <select class="form-control" id="exampleSelect1">
+                            <option>Google 搜尋</option>
+                            <option>Google 廣告</option>
+                            <option>朋友介紹</option>
+                            <option>Facebook</option>
+                            <option>其他</option>
+                            </select>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="exampleTextarea">其他</label>
+                            <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                        </fieldset>
+                        <button type="submit" class="btn btn-primary">預約老師</button>
+                        </form>
+                </div>
+                <br/>
+            </div>
+        </div>
+    </section>
+-->
+
+    <!-- Google jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <!-- Custom Theme / Plugin jQuery -->
+    <script src="assets_1/js/jquery.js"></script>
+    
+    <!-- Bootstrap Core JavaScript -->
+    <script src="assets_1/js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme / Plugin JavaScript -->
+    <script src="assets_1/js/scrollreveal.min.js"></script>
+    <script src="assets_1/js/jquery.easing.min.js"></script>
+    <script src="assets_1/js/jquery.fittext.js"></script>
+    <script src="assets_1/js/jquery.magnific-popup.min.js"></script>
+
+    <!-- Custom Theme / Plugin JavaScript -->
+    <script src="assets_1/js/creative.js"></script>
+
+    <!--Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+    
+        <script>
+            $('document').ready(function() {
+                
+                    // Initialize Firebase
+                    var config = {
+                        apiKey: "AIzaSyCTAD_8dK9w5MYRvPNbHr7isUGcIZNtDrU",
+                        authDomain: "project-3373896903953203314.firebaseapp.com",
+                        databaseURL: "https://project-3373896903953203314.firebaseio.com",
+                        storageBucket: "project-3373896903953203314.appspot.com",
+                    };
+
+                    firebase.initializeApp(config);
+                    var db = firebase.database();
+
+                    //Retrieve Profile Data from Teacher's Database
+                    db.ref().orderByChild('username').equalTo('oahcrenrew').on("child_added", function(snapshot) {
+                        $('#nickName').append(snapshot.val().userProfile.nickName + '<br>');
+                        //$('#experience').append(snapshot.val().userProfile.exp + '<br>');
+                        checkExperience();
+                        $('#selfIntro').append('<p style="margin: 0 15px;">' + snapshot.val().userProfile.selfIntro + '</p>');
+//<p class='portfolio-box'></p>
+                        //Loop through schedule array to display it nicer
+                        function checkExperience() {
+                            var exp = snapshot.val().userProfile.exp;
+                            if (exp == 1) {
+                                $('#experience').append('一年經驗' + '<br>');
+                            }
+
+                            if (exp == 2) {
+                                $('#experience').append('兩到三年經驗' + '<br>');
+                            }
+
+                            if (exp == 3) {
+                                $('#experience').append('三至五年經驗' + '<br>');
+                            }
+
+                            if (exp == 4) {
+                                $('#experience').append('我是長老級的老師' + '<br>');
+                            }
+                        }
+                        
+                        }, 
+                    function (errorObject) {
+                        console.log("The read failed: " + errorObject.code);
+                    });
+
+
+                    //Login Status and insert 'account' element if logged in
+                    firebase.auth().onAuthStateChanged(function (user) {
+                        var statusDiv = document.getElementById("loginStatus");
+                        var statusDivParent = document.getElementById("listLoginStatus");
+                        if (user) {
+                            statusDiv.innerHTML = user.email + "&nbsp&nbsp<input type='button' value='登出' onclick='logoutUser()'></input>";
+                            $('<li><a style="color:black;" class="page-scroll" href="dashboard.html">我的帳號</a></li>').insertBefore(statusDivParent);
+                        }
+                    });
+
+
+                    //Firebaes Logout User
+                    function logoutUser() {
+                        firebase.auth().signOut().then(function() {
+                            alert("Sign-out successful.");
+                        }, function(error) {
+                            alert("An error happened.");
+                        });
+                    }
+            });
+        </script>
+</body>
+
+</html>

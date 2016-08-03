@@ -118,7 +118,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">明奈線上日文</h2>
+                    <h2 class="section-heading">明奈線上日文 - 想成為我們平台上的老師嗎？</h2>
                     <hr class="primary">
                 </div>
             </div>
@@ -129,7 +129,7 @@
                     <div class="service-box">
                         <i class="fa fa-4x fa-diamond text-primary sr-icons"></i>
                             <form onsubmit="return createUser(this)">
-                                <h3>第一次使用者</h3>
+                                <h3>申請成為日文老師</h3>
                                 <label>登入請輸入email和密碼：</label>
                                 <br></br>
                                 <input type="text" id="email_new" name="email_new" placeholder="email" required>
@@ -138,14 +138,14 @@
                                 <br></br>
                                 <button type='submit'>登入</button>
                         </form>
-                        <p class="text-muted">第一次使用者</p>
+                        <p class="text-muted">成為平台上的日文老師吧</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <i class="fa fa-4x fa-paper-plane text-primary sr-icons"></i>
                                 <form onsubmit="return loginUser(this)">
-                                    <h3>已有帳號使用者</h3>
+                                    <h3>老師登入</h3>
                                     <label>登入請輸入email和密碼：</label>
                                     <br></br>
                                     <input type="text" id="email" name="email" placeholder="email" required>
@@ -196,7 +196,10 @@
         function loginUser(form) {
             var email = form["email"].value;
             var password = form["password"].value;
-            var user = firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+            var user = firebase.auth().signInWithEmailAndPassword(email, password)
+            console.log(user.uid);
+            
+            user.catch(function(error) {
                 // Handle Errors here.
                 var errorCode = error.code;
                 var errorMessage = error.message;

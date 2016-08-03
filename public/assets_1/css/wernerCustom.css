@@ -1,4 +1,3 @@
-
 .section-heading {
     color: black;
 }
@@ -15,8 +14,9 @@ hr.light {
     border-color: #f05f40;
 }
 
-＃about{
+#about{
     color: black;
+    padding-top: 50px 0;
 }
 
 #login-body {
@@ -37,4 +37,16 @@ hr.light {
 
 .navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
     color: black;
+}
+
+#about-text, #services-text, #portfolio-text, #contact-text, #loginStatus, #account-text, #becomeTeacher {
+    color: black;
+}
+
+#home-text {
+    color: #f05f40;
+}
+
+.spacer {
+    margin-top: 50px;
 }

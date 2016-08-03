@@ -45,14 +45,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a id='home-text' class="navbar-brand page-scroll" href="#page-top">明奈線上日文</a>
+                <a id='home-text' class="navbar-brand page-scroll" href="index.html">明奈線上日文</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a id="about-text" class='page-scroll' href="#about">線上學日文</a>
+                        <a id="about-text" class='page-scroll' href="#about">學日文</a>
                     </li>
                     <li>
                         <a id="services-text" class='page-scroll' href="#services">我們是誰</a>
@@ -62,9 +62,6 @@
                     </li>
                     <li>
                         <a id="contact-text" class='page-scroll' href="#contact">開始預約老師</a>
-                    </li>
-                    <li>
-                        <a id="becomeTeacher" class='page-scroll' href="loginTeacher.html">日文老師申請/登入</a>
                     </li>
                     <li id='listLoginStatus'>
                         <a id='loginStatus' href="login.html">註冊 / 登入</a>
@@ -76,27 +73,19 @@
         <!-- /.container-fluid -->
     </nav>
 
-    <div class='spacer'></div>
-    <header>
-        <div class="header-content">
-            <div class="header-content-inner">
-                <h1>不要只學習日文</h1>
-                <hr>
-                <h2>學習日本的文化</h2>
-                <h2>用日本人的方法</h2>
-                <a href="#about" class="btn btn-primary btn-xl page-scroll">認識更多</a>
-            </div>
-        </div>
-    </header>
 
+        <div class="spacer">
+        </div>
+ 
+<!--
     <section class="bg-primary" id="about">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">線上日文學院</h2>
+                    <h2 class="section-heading">開始學吧</h2>
                     <hr class="light">
-                    <p class="text-faded">方便、省時、隨時隨地</p>
-                    <a href="whatWeDo.html" class="page-scroll btn btn-default btn-xl sr-button">線上教學是什麼？</a>
+                    <p class="text-faded">找一個最適合你的老師</p>
+                    <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">開始學習</a>
                 </div>
             </div>
         </div>
@@ -144,6 +133,7 @@
             </div>
         </div>
     </section>
+-->
 
     <section class="no-padding" id="portfolio">
         <div class="container-fluid">
@@ -164,8 +154,8 @@
                     </a>
                 </div>
                 <div class="col-lg-4 col-sm-6">
-                    <a href="assets_1/img/portfolio/fullsize/teacher2_Fotor_FullSize.jpg" class="portfolio-box">
-                        <img src="assets_1/img/portfolio/thumbnails/teacher2_Fotor.jpg" class="img-responsive" alt="">
+                    <a href="assets_1/img/portfolio/fullsize/teacher1_Fotor_FullSize.jpg" class="portfolio-box">
+                        <img src="assets_1/img/portfolio/thumbnails/teacher1_Fotor.jpg" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
@@ -178,8 +168,6 @@
                         </div>
                     </a>
                 </div>
-
-<!--
                 <div class="col-lg-4 col-sm-6">
                     <a href="assets_1/img/portfolio/fullsize/teacher1_Fotor_FullSize.jpg" class="portfolio-box">
                         <img src="assets_1/img/portfolio/thumbnails/teacher1_Fotor.jpg" class="img-responsive" alt="">
@@ -242,14 +230,14 @@
                 </div>
             </div>
         </div>
--->
     </section>
 
+    <!--
     <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action">
                 <h2>這裏有更多老師可以選</h2>
-                <a href="teachers.html" class="btn btn-default btn-xl sr-button">查看更多老師</a>
+                <a href="http://startbootstrap.com/template-overviews/creative/" class="btn btn-default btn-xl sr-button">查看更多老師</a>
             </div>
         </div>
     </aside>
@@ -272,12 +260,11 @@
                             <fieldset class="form-group">
                                 <label for="channelSelect">從哪裡知道我們的？</label>
                                 <select class="form-control" id="channelSelect">
-                                    <option value="0">請選擇</option>
-                                    <option value="1">Google 搜尋</option>
-                                    <option value="2">Google 廣告</option>
-                                    <option value="3">朋友介紹</option>
-                                    <option value="4">Facebook</option>
-                                    <option value="5">其他管道</option>
+                                <option>Google 搜尋</option>
+                                <option>Google 廣告</option>
+                                <option>朋友介紹</option>
+                                <option>Facebook</option>
+                                <option>其他管道</option>
                                 </select>
                             </fieldset>
                             <fieldset class="form-group">
@@ -295,10 +282,11 @@
                 <div class="col-lg-4 text-center">
                     <i class="fa fa-envelope-o fa-3x sr-contact"></i>
                     <p><a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a></p>
-                </div>-->
+                </div> ->
             </div>
         </div>
     </section>
+    -->
 
     <!-- Google jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -322,7 +310,7 @@
     <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
     
         <script>
-            //Initialize Firebase
+            // Initialize Firebase
             var config = {
                 apiKey: "AIzaSyCTAD_8dK9w5MYRvPNbHr7isUGcIZNtDrU",
                 authDomain: "project-3373896903953203314.firebaseapp.com",
@@ -330,50 +318,33 @@
                 storageBucket: "project-3373896903953203314.appspot.com",
             };
 
-            //Create Users When Form Is Submitted
             firebase.initializeApp(config);
             var db = firebase.database();
             function createUser(form) {
                 var email = form["InputEmail"].value;
                 var password = form["InputPassword"].value;
-                var formChannel = form["channelSelect"].value;
-                var formTextarea = form["channelTextarea"].value;
                 var user = firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-                                    // Handle Errors here.
-                                    var errorCode = error.code;
-                                    var errorMessage = error.message;
-                                    alert("Error: " + errorMessage);
-                                    // ...
-                        });
-
-                                    firebase.auth().onAuthStateChanged(function (user) {
-                                        if (user) {
-                                            db.ref().child(user.uid).child('userProfile').set({
-                                                uid: user.uid,
-                                                email: email,
-                                                passwordPhoneNumber: password,
-                                                channel: formChannel,
-                                                otherChannel: formTextarea,
-                                                accountType: 'student'
-                                    });
-                                            window.open('teachers.html');
-                                        }
-                                    });
+                    // Handle Errors here.
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    alert("Error: " + errorMessage);
+                    // ...
+                });
+                //form.preventDefault();
                 return false;
+                //$('#InputEmail').val('');
+                //$('#InputPassword').val('');
             }
 
             //Login Status and insert 'account' element if logged in
             firebase.auth().onAuthStateChanged(function (user) {
                 var statusDiv = document.getElementById("loginStatus");
                 var statusDivParent = document.getElementById("listLoginStatus");
-                var reservationForm = document.getElementById('contact');
                 if (user) {
                     statusDiv.innerHTML = user.email + "&nbsp&nbsp<input type='button' value='登出' onclick='logoutUser()'></input>";
                     $('<li><a style="color:black;" class="page-scroll" href="dashboard.html">我的帳號</a></li>').insertBefore(statusDivParent);
-                    reservationForm.style.display = 'none';
                 }
             });
-
 
             //Firebaes Logout User
             function logoutUser() {
