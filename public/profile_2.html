@@ -106,28 +106,11 @@
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <i class="fa fa-4x fa-diamond text-primary sr-icons"></i>
-                        <img id='profilePic' src='assets_1/img/teacher1_profile_pic.jpg'>
+                        <img id='profilePic' src='assets_1/img/teacher2_profile_pic.jpg'>
                         <h3 id="experience">經驗： </h3>
                         <p id='selfIntro' class="text-muted"></p>
-                        <h3>時間表</h3>
-                        <p id='timeTable' class="text-muted">
-                            <div class="col-xs-4 text-center">
-                                <p id='mondayTimeTable'>Monday</p>
-                            </div>
-                            <div class="col-xs-4 text-center">
-                                <p id='tuesdayTimeTable'>Tuesday</p>
-                            </div>
-                        </p>
-                        <br>
+                        <a href="dashboard.html" class="btn btn-default btn-xl sr-button">預約老師</a>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 text-center">
-                    <br>
-                    <a id="reserveTeacher" class="btn btn-default btn-xl sr-button">預約老師</a>
                 </div>
             </div>
         </div>
@@ -313,13 +296,15 @@
                     var db = firebase.database();
 
                     //Retrieve Profile Data from Teacher's Database
-                    db.ref('L3J83DCPVNOHQPC55QxPLIGUtf72').orderByChild('email').equalTo('oahcrenrew@gmail.com').on("child_added", function(snapshot) {
-                        $('#nickName').append(snapshot.val().nickName + '<br>');
+                    db.ref().orderByChild('username').equalTo('oahcrenrew').on("child_added", function(snapshot) {
+                        $('#nickName').append(snapshot.val().userProfile.nickName + '<br>');
                         //$('#experience').append(snapshot.val().userProfile.exp + '<br>');
                         checkExperience();
-                        $('#selfIntro').append('<p style="margin: 0 15px;">' + snapshot.val().selfIntro + '</p>');
+                        $('#selfIntro').append('<p style="margin: 0 15px;">' + snapshot.val().userProfile.selfIntro + '</p>');
+//<p class='portfolio-box'></p>
+                        //Loop through schedule array to display it nicer
                         function checkExperience() {
-                            var exp = snapshot.val().exp;
+                            var exp = snapshot.val().userProfile.exp;
                             if (exp == 1) {
                                 $('#experience').append('一年經驗' + '<br>');
                             }
@@ -342,69 +327,6 @@
                         console.log("The read failed: " + errorObject.code);
                     });
 
-                    //Monday Schedule - Loop through and display Teacher's schedule
-                    db.ref('L3J83DCPVNOHQPC55QxPLIGUtf72/Monday').on("child_added", function(snapshot) {
-                        //Loop through schedule array to display it nicer
-                        var availableTime = snapshot.val();
-                        for (i=0; i < availableTime.length; i++) {
-                            var timeArray = availableTime[i];
-                            var firstNum = parseInt(timeArray) + 7;
-                            var lastNum = firstNum + 1;
-                            $('#mondayTimeTable').append('<div class="btnDefault">' + firstNum + ' ~ ' + lastNum + '</div>');
-                        }
-                        //Changes available time slots background color when clicked
-                        /*$(".btnDefault").click(function() {
-                            $(this).toggleClass('btnActive');
-                        });*/
-                    });
-
-                    //Tuesday Schedule - Loop through and display Teacher's schedule
-                    db.ref('L3J83DCPVNOHQPC55QxPLIGUtf72/Tuesday').on("child_added", function(snapshot) {
-                        //Loop through schedule array to display it nicer
-                        var availableTime = snapshot.val();
-                        for (i=0; i < availableTime.length; i++) {
-                            var timeArray = availableTime[i];
-                            var firstNum = parseInt(timeArray) + 7;
-                            var lastNum = firstNum + 1;
-                            $('#tuesdayTimeTable').append('<div class="btnDefault">' + firstNum + ' ~ ' + lastNum + '</div>');
-                        }
-                        //Changes available time slots background color when clicked
-                        $(".btnDefault").click(function() {
-                            $(this).toggleClass('btnActive');
-                        });
-                    });
-
-                    //When Reserve Button Clicked, change values in the database
-                    $('#reserveTeacher').click(function() {
-                        var test = $('div.btnActive').text(function(index, timeRange){
-                            var day = $(this).parent().clone().children().remove().end().text(); //get the text of day the btn is clicked, ie. Monday or Tuesday or...
-                            db.ref('L3J83DCPVNOHQPC55QxPLIGUtf72').on("child_added", function(snapshot) {
-                                //Loop through availableTime array from database
-                                var availableTime = snapshot.val().availableTime; //get all the availableTime array
-                                for (i=0; i < availableTime.length; i++) {
-                                    var timeArray = availableTime[i];
-                                    var firstNum = parseInt(timeArray) + 7;
-                                    var lastNum = firstNum + 1;
-                                    var checkTimeRange = firstNum + ' ~ ' + lastNum;
-                                    
-                                    if (timeRange == checkTimeRange) {
-                                        //Delete the checkTimeRange in the original database
-                                        availableTime.splice(i, 1);
-                                        db.ref('L3J83DCPVNOHQPC55QxPLIGUtf72').child(day).set({
-                                            availableTime: availableTime
-                                        }, alert(availableTime));
-                                        //Push the checked time "timeRange" into the new database "scheduledTime"
-                                        var scheduledTime = [] ;
-                                        scheduledTime.push(timeRange);
-                                        db.ref('L3J83DCPVNOHQPC55QxPLIGUtf72').child('scheduled'+day).push({
-                                            scheduledTime: scheduledTime
-                                        });
-                                    }
-                                }
-                            });
-                        });
-                        
-                    });
 
                     //Login Status and insert 'account' element if logged in
                     firebase.auth().onAuthStateChanged(function (user) {

@@ -10,7 +10,6 @@
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
-
     <!-- Bootstrap core CSS     -->
     <link href="assets_2/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -20,10 +19,8 @@
     <!--  Light Bootstrap Table core CSS    -->
     <link href="assets_2/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
 
-
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="assets_2/css/demo.css" rel="stylesheet" />
-
 
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -53,19 +50,19 @@
 
             <ul class="nav">
                 <li class="active">
-                    <a href="dashboard.html">
+                    <a href="dashboardTeacher.html">
                         <i class="pe-7s-graph"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
                 <li>
-                    <a href="user.html">
+                    <a href="userTeacher.html">
                         <i class="pe-7s-user"></i>
                         <p>個人資料</p>
                     </a>
                 </li>
                 <li>
-                    <a href="table.html">
+                    <a href="tableTeacher.html">
                         <i class="pe-7s-note2"></i>
                         <p>學生們</p>
                     </a>
@@ -117,7 +114,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">回到首頁</a>
+                    <a class="navbar-brand" href="index.html">老師的 Dashboard</a>
+                    <div id="loginStatus">Not Logged In</div>
                 </div>
                 <div class="collapse navbar-collapse">
 
@@ -188,90 +186,93 @@
                 <div class="row">
 
                         <div class="container" ng-app="scheduleApp" ng-controller="mainController">
-
                             <div class="row times">
-                            </div>    
-                            
-                            
-                        </div>
-                    
-<!--
-                        div class="col-xs-6">
-                        <div class="card">
-                            <div class="content">
-                            <div id="loginStatus">Something</div>
-                            <form onsubmit="return addUsername(event)">
-                                    UserName: <input type="text" name="username" size="10"><br>
-                                    <div style="margin-top: 5px;"></div>
-                                    <input type="submit" value="Submit">
-                                    <div style="margin-top: 15px;"></div>
-                            </form>
-                                <form id='form1' onsubmit="return addSchedule(event)">
-                                    這週有空的時間: <br>
-                                    星期一 <br>
-                                    上午 <br/>
-                                    8:00~9:00 <input type="checkbox" name="availableTimeM" value='1'><br>
-                                    9:00~10:00 <input type="checkbox" name="availableTimeM" value='2'><br>
-                                    10:00~11:00 <input type="checkbox" name="availableTimeM" value='3'><br>
-                                    11:00~12:00 <input type="checkbox" name="availableTimeM" value='4'><br>
-                                    下午 <br/>
-                                    12:00~13:00 <input type="checkbox" name="availableTimeM" value='5'><br>
-                                    13:00~14:00 <input type="checkbox" name="availableTimeM" value='6'><br>
-                                    14:00~15:00 <input type="checkbox" name="availableTimeM" value='7'><br>
-                                    15:00~16:00 <input type="checkbox" name="availableTimeM" value='8'><br>
-                                    16:00~17:00 <input type="checkbox" name="availableTimeM" value='9'><br>
-                                    17:00~18:00 <input type="checkbox" name="availableTimeM" value='10'><br>
-                                    18:00~19:00 <input type="checkbox" name="availableTimeM" value='11'><br>
-                                    19:00~20:00 <input type="checkbox" name="availableTimeM" value='12'><br>
-                                    21:00~22:00 <input type="checkbox" name="availableTimeM" value='13'><br>
-                                    22:00~23:00 <input type="checkbox" name="availableTimeM" value='14'><br>
-                                    23:00~24:00 <input type="checkbox" name="availableTimeM" value='15'><br>
-                                    <input type="submit" value="Submit">
-                                </form>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="col-xs-6">
-                        <div class="card">
-                            <div class="content">
-                                <form onsubmit="return addSchedule(event)">
-                                    星期二 <br>
-                                    上午 <br/>
-                                    8:00~9:00 <input type="checkbox" name="availableTimeTu" value='1'><br>
-                                    9:00~10:00 <input type="checkbox" name="availableTimeTu" value='2'><br>
-                                    10:00~11:00 <input type="checkbox" name="availableTimeTu" value='3'><br>
-                                    11:00~12:00 <input type="checkbox" name="availableTimeTu" value='4'><br>
-                                    下午 <br/>
-                                    12:00~13:00 <input type="checkbox" name="availableTimeTu" value='5'><br>
-                                    13:00~14:00 <input type="checkbox" name="availableTimeTu" value='6'><br>
-                                    14:00~15:00 <input type="checkbox" name="availableTimeTu" value='7'><br>
-                                    15:00~16:00 <input type="checkbox" name="availableTimeTu" value='8'><br>
-                                    16:00~17:00 <input type="checkbox" name="availableTimeTu" value='9'><br>
-                                    17:00~18:00 <input type="checkbox" name="availableTimeTu" value='10'><br>
-                                    18:00~19:00 <input type="checkbox" name="availableTimeTu" value='11'><br>
-                                    19:00~20:00 <input type="checkbox" name="availableTimeTu" value='12'><br>
-                                    21:00~22:00 <input type="checkbox" name="availableTimeTu" value='13'><br>
-                                    22:00~23:00 <input type="checkbox" name="availableTimeTu" value='14'><br>
-                                    23:00~24:00 <input type="checkbox" name="availableTimeTu" value='15'><br>
-                                    <input type="submit" value="Submit">
-                                </form>
+                        
+                        <div class='row'>
+                            <div class="col-xs-4">
+                                <div class="card">
+                                    <div class="content">
+                                        <a href='calender.html'>我的時刻表</a>
+                                            <div id='MondaySchedule'>Monday<br></div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
--->
-
-                    <div class='row'>
-                        <div class="col-xs-4">
-                            <div class="card">
-                                <div class="content">
-                                    <button type='button' onclick='retrieveSchedule()'>Retrieve Schedule</button>
-                                    <div id='weeklySchedule'></div>
-                                    <a href='calender.html'>我的時刻表</a>
+                            <div class="col-xs-4">
+                                <div class="card">
+                                    <div class="content">
+                                        <div id='TuesdaySchedule'>Tuesday<br></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="card">
+                                    <div class="content">
+                                        <div id='WednesdaySchedule'>Wednesday<br></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+
+                        <form id='form1' onsubmit="return addSchedule(event)">
+                            <div class="col-s-6">
+                                <div class="card">
+                                        <div class="content">
+                                                這週有空的時間: <br>
+                                                <label>Monday</label><br>
+                                                上午 <br/>
+                                                8:00~9:00 <input type="checkbox" class="availableTime" name="availableTime" value='1'><br>
+                                                9:00~10:00 <input type="checkbox" class="availableTime" name="availableTime" value='2'><br>
+                                                10:00~11:00 <input type="checkbox" class="availableTime" name="availableTime" value='3'><br>
+                                                11:00~12:00 <input type="checkbox" class="availableTime" name="availableTime" value='4'><br>
+                                                下午 <br/>
+                                                12:00~13:00 <input type="checkbox" class="availableTime" name="availableTime" value='5'><br>
+                                                13:00~14:00 <input type="checkbox" class="availableTime" name="availableTime" value='6'><br>
+                                                14:00~15:00 <input type="checkbox" class="availableTime" name="availableTime" value='7'><br>
+                                                15:00~16:00 <input type="checkbox" class="availableTime" name="availableTime" value='8'><br>
+                                                16:00~17:00 <input type="checkbox" class="availableTime" name="availableTime" value='9'><br>
+                                                17:00~18:00 <input type="checkbox" class="availableTime" name="availableTime" value='10'><br>
+                                                18:00~19:00 <input type="checkbox" class="availableTime" name="availableTime" value='11'><br>
+                                                19:00~20:00 <input type="checkbox" class="availableTime" name="availableTime" value='12'><br>
+                                                20:00~21:00 <input type="checkbox" class="availableTime" name="availableTime" value='13'><br>
+                                                21:00~22:00 <input type="checkbox" class="availableTime" name="availableTime" value='14'><br>
+                                                22:00~23:00 <input type="checkbox" class="availableTime" name="availableTime" value='15'><br>
+                                                23:00~24:00 <input type="checkbox" class="availableTime" name="availableTime" value='16'><br>
+                                                <input type="submit" value="Submit">
+                                        </div>
+                                </div>
+                            </div>
+                        </form>
+
+                    <form id='form2' onsubmit="return addSchedule(event)">
+                        <div class="col-s-6">
+                            <div class="card">
+                                <div class="content">
+                                        這週有空的時間: <br>
+                                        <label>Tuesday</label><br>
+                                        上午 <br/>
+                                        8:00~9:00 <input type="checkbox" class="availableTime" name="availableTime" value='1'><br>
+                                        9:00~10:00 <input type="checkbox" class="availableTime" name="availableTime" value='2'><br>
+                                        10:00~11:00 <input type="checkbox" class="availableTime" name="availableTime" value='3'><br>
+                                        11:00~12:00 <input type="checkbox" class="availableTime" name="availableTime" value='4'><br>
+                                        下午 <br/>
+                                        12:00~13:00 <input type="checkbox" class="availableTime" name="availableTime" value='5'><br>
+                                        13:00~14:00 <input type="checkbox" class="availableTime" name="availableTime" value='6'><br>
+                                        14:00~15:00 <input type="checkbox" class="availableTime" name="availableTime" value='7'><br>
+                                        15:00~16:00 <input type="checkbox" class="availableTime" name="availableTime" value='8'><br>
+                                        16:00~17:00 <input type="checkbox" class="availableTime" name="availableTime" value='9'><br>
+                                        17:00~18:00 <input type="checkbox" class="availableTime" name="availableTime" value='10'><br>
+                                        18:00~19:00 <input type="checkbox" class="availableTime" name="availableTime" value='11'><br>
+                                        19:00~20:00 <input type="checkbox" class="availableTime" name="availableTime" value='12'><br>
+                                        21:00~22:00 <input type="checkbox" class="availableTime" name="availableTime" value='13'><br>
+                                        22:00~23:00 <input type="checkbox" class="availableTime" name="availableTime" value='14'><br>
+                                        23:00~24:00 <input type="checkbox" class="availableTime" name="availableTime" value='15'><br>
+                                        <input type="submit" value="Submit">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
 
 <!--
                     <div class="col-md-4">
@@ -300,8 +301,8 @@
                 </div>
 
 
-
                 <div class="row">
+<!--
                     <div class="col-md-6">
                         <div class="card ">
                             <div class="header">
@@ -324,7 +325,9 @@
                             </div>
                         </div>
                     </div>
+-->
 
+<!--
                     <div class="col-md-6">
                         <div class="card ">
                             <div class="header">
@@ -445,9 +448,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
+-->
+                </div><!--div block for container fluid class-->
+            </div><!--div block for content class-->
+        </div><!--div block for main-panel class-->
 
 
         <footer class="footer">
@@ -489,7 +493,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
         <!-- Firebase -->
-
         <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
         <script>
         // Initialize Firebase
@@ -503,6 +506,7 @@
         firebase.initializeApp(config);
         var db = firebase.database();
 
+        /*Add username to database function when button clicked, NOT IN USE
         function addUsername(event) {
             var uid = firebase.auth().currentUser.uid
             var form = event.target;
@@ -514,44 +518,33 @@
             });
             event.preventDefault();
             return false;
-        }
+        }*/
 
         function addSchedule(event) {
-            var uid = firebase.auth().currentUser.uid
+            var user = firebase.auth().currentUser
             var form = event.target;
-            var availableTime = form.availableTimeM;
-            //var newArray = [];
-            var availableTimeM = [];
-            //for availableTime.length
+            var availableTime = form.availableTime;
+            var availableTimeArr = [];
+            //for availableTime.length, push 'checked' availableTime slots into the availableTimeM array
             for (i=0; i < availableTime.length; i++){
-                //  var input = availableTimeM[i];
                 var checkedAvailableTimeM = availableTime[i];
-                //if input.checked
                 if (checkedAvailableTimeM.checked) {
-                    //newArray.push(input.value)
-                    availableTimeM.push(checkedAvailableTimeM.value);
+                    availableTimeArr.push(checkedAvailableTimeM.value);
                 }
             }
-            db.ref().child(uid).child('thisWeekSchedule').set({
-            availableTime: availableTimeM //newArray
+            var x = $(form).find('label').text();
+            db.ref(user.uid).child(x).set({
+                availableTime: availableTimeArr //newArray
+                //availableTimeTue: availableTimeTue //newArray
+                //availableTimeWed: availableTimeWed //newArray
+                //availableTimeWed: availableTimeWed //newArray
+                //availableTimeThur: availableTimeThur //newArray
+                //availableTimeFri: availableTimeFri //newArray
+                //availableTimeSat: availableTimeSat //newArray
             });
             event.preventDefault();
             return false;
         }
-
-        // Attach an asynchronous callback to read the data at our posts reference
-        function retrieveSchedule() {
-            var uid = firebase.auth().currentUser.uid;
-            db.ref().orderByChild('uid').equalTo(uid).on("child_added", function(snapshot) {
-                console.log(snapshot.val());
-                //console.log(snapshot.val().availableTime);
-                $('#weeklySchedule').append(snapshot.val().username);
-                $('#weeklySchedule').append(snapshot.val().thisWeekSchedule.availableTime);
-                }, function (errorObject) {
-                console.log("The read failed: " + errorObject.code);
-            });
-        }
-
 
         //Firebaes Lougout User
         function logoutUser() {
@@ -562,29 +555,72 @@
             });
         }
 
-        $('document').ready(function() {
             firebase.auth().onAuthStateChanged(function(user) {
                 var statusDiv = document.getElementById("loginStatus");
-                
                 if (user) {
-                    // User is signed in.
-                    statusDiv.innerHTML = user.email;
-                    //console.log(user.uid);
-                    db.ref().orderByChild('uid').equalTo(user.uid).on("child_added", function(snapshot) {
-                        //console.log(snapshot.val());
-                        //console.log(snapshot.val().availableTime);
-                        $('#weeklySchedule').append(snapshot.val().username);
-                        $('#weeklySchedule').append(snapshot.val().thisWeekSchedule.availableTime);
+                    statusDiv.innerHTML = user.email; //show email at #loginStatus
+                    //1) check the available time that the teacher selected himself when page loads
+                    for (i=0; i<7; i++) {
+                        var days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+                        db.ref(user.uid + '/' + days).on("child_added", function(snapshot) {
+                            var time = snapshot.val();
+                            //1) check the checkboxes that thee teacher set previously
+                            for (i=0;i < time.length;i++) {
+                                    var x = time[i];
+                                    $('#form1 input.availableTime[value = '+x+']').attr("checked", true); //Update Monday's checkmark
+                                    //Update Wednesday's checkmark (NEED TO RE-CREATE DB.REF() FUNCTIONS FOR EACH WEEKDAY)
+                                    //Update Thursday's checkmark
+                                    //Update Friday's checkmark
+                                    //Update Sat's checkmark
+                                    //Update Sun's checkmark
+                                }
                         }, function (errorObject) {
+                            console.log("The read failed: " + errorObject.code);
+                        });
+                    }
+
+                    //2) and check the accountType (STILL BUGGED)
+                    db.ref(user.uid + '/comingWeekSchedule').on("child_added", function(snapshot) {
+                        var urlIs = document.location.href;  //get the url
+                        var lastPart = urlIs.split("/").pop(); //get the last part of the url
+                        var accountType = snapshot.val().accountType; //get the accountType, teacher or student
+
+                        //2) checking if the accountType in database in 'student' or 'teacher'
+                        if (accountType === 'teacher' && lastPart != 'dashboardTeacher.html') {
+                            document.location.href = 'dashboardTeacher.html';
+                        }
+                        if (accountType === 'student' && lastPart != 'dashboard.html') {
+                            document.location.href = 'dashboard.html';
+                        }
+                    }, function (errorObject) {
                         console.log("The read failed: " + errorObject.code);
                     });
-
+                    
+                    //3) and show the student selected schedule on <div> and disable reserved schedule selection
+                    for (i=0; i<7; i++) {
+                        var days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+                        //console.log('#' + days[i] + 'Schedule');
+                        console.log('/scheduled'+ days[i]);
+                        db.ref(user.uid +'/scheduledMonday').on("child_added", function(snapshot) { //make the query become a dynamic value
+                                alert('test');
+                                var scheduledTime = snapshot.val().scheduledTime;
+                                //$('#' + days[i] + 'Schedule').append(scheduledTime + '<br>'); //IF PUT HERE DOESN'T WORK, ASK GLEN
+                                    for (j=0; j<scheduledTime.length; j++) {
+                                            var x = scheduledTime[i];
+                                            var y = parseInt(x.split(" ", 1)-7);
+                                            $('#form' +i+ 'input.availableTime[value = '+y+']').attr("disabled", "disabled");
+                                            $('#' + days[i] + 'Schedule').append(scheduledTime + '<br>');
+                                        }
+                                }, function (errorObject) {
+                                    console.log("The read failed: " + errorObject.code);
+                        });
+                    };
+                    
                 } else {
-                    // No user is signed in.
+                    // User is not signed in.
                     document.location.href = 'login.html';
                 }
             });
-        });
 
         </script>
 

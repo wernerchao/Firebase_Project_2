@@ -1,0 +1,37 @@
+{
+    student: {
+        uid1: {
+            email: ...,
+            phone: ...,
+            name: ...
+        },
+        ...
+    },
+    studentLessons: {
+        uid1: {
+            0: awefjweifoj,
+            1: afwejiwejofo
+        }
+    },
+    lessonStudents: {
+        awefjweifoj: {
+            0: uid1
+        }
+    },
+    lessons: {
+        awefjweifoj: {
+            name: "learn abc",
+            teacher: "marie"
+            ...
+        },
+        afwejiwejofo: {
+            name: "learn def",
+            ...
+        }
+    }
+}
+
+var uid = firebase.auth().currentUser.uid;
+db.ref("userProfile/" + uid) // user info 
+db.ref("userLessons").child(uid) // what the student is taking
+db.ref("lessons").orderBy

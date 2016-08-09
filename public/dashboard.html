@@ -43,7 +43,6 @@
         Tip 2: you can also add an image using data-image tag
 
     -->
-
     	<div class="sidebar-wrapper">
             <div class="logo">
                 <a href="index.html" class="simple-text">
@@ -67,7 +66,7 @@
                 <li>
                     <a href="table.html">
                         <i class="pe-7s-note2"></i>
-                        <p>學生們</p>
+                        <p>上課記錄</p>
                     </a>
                 </li>
 
@@ -117,7 +116,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">回到首頁</a>
+                    <a class="navbar-brand" href="index.html">學生的 Dashboard</a>
+                    <div id="loginStatus">Not Logged In</div>
                 </div>
                 <div class="collapse navbar-collapse">
 
@@ -188,48 +188,44 @@
                 <div class="row">
 
                         <div class="container" ng-app="scheduleApp" ng-controller="mainController">
-
                             <div class="row times">
                             </div>    
-                            
-                            
                         </div>
                     
-<!--
-                        div class="col-xs-6">
-                        <div class="card">
-                            <div class="content">
-                            <div id="loginStatus">Something</div>
-                            <form onsubmit="return addUsername(event)">
-                                    UserName: <input type="text" name="username" size="10"><br>
-                                    <div style="margin-top: 5px;"></div>
-                                    <input type="submit" value="Submit">
-                                    <div style="margin-top: 15px;"></div>
-                            </form>
-                                <form id='form1' onsubmit="return addSchedule(event)">
-                                    這週有空的時間: <br>
-                                    星期一 <br>
-                                    上午 <br/>
-                                    8:00~9:00 <input type="checkbox" name="availableTimeM" value='1'><br>
-                                    9:00~10:00 <input type="checkbox" name="availableTimeM" value='2'><br>
-                                    10:00~11:00 <input type="checkbox" name="availableTimeM" value='3'><br>
-                                    11:00~12:00 <input type="checkbox" name="availableTimeM" value='4'><br>
-                                    下午 <br/>
-                                    12:00~13:00 <input type="checkbox" name="availableTimeM" value='5'><br>
-                                    13:00~14:00 <input type="checkbox" name="availableTimeM" value='6'><br>
-                                    14:00~15:00 <input type="checkbox" name="availableTimeM" value='7'><br>
-                                    15:00~16:00 <input type="checkbox" name="availableTimeM" value='8'><br>
-                                    16:00~17:00 <input type="checkbox" name="availableTimeM" value='9'><br>
-                                    17:00~18:00 <input type="checkbox" name="availableTimeM" value='10'><br>
-                                    18:00~19:00 <input type="checkbox" name="availableTimeM" value='11'><br>
-                                    19:00~20:00 <input type="checkbox" name="availableTimeM" value='12'><br>
-                                    21:00~22:00 <input type="checkbox" name="availableTimeM" value='13'><br>
-                                    22:00~23:00 <input type="checkbox" name="availableTimeM" value='14'><br>
-                                    23:00~24:00 <input type="checkbox" name="availableTimeM" value='15'><br>
-                                    <input type="submit" value="Submit">
+                        <div class="col-xs-6">
+                            <div class="card">
+                                <div class="content">
+                                <div id="loginStatus">Something</div>
+                                <form onsubmit="return addUsername(event)">
+                                        UserName: <input type="text" name="username" size="10"><br>
+                                        <div style="margin-top: 5px;"></div>
+                                        <input type="submit" value="Submit">
+                                        <div style="margin-top: 15px;"></div>
                                 </form>
+                                    <form id='form1' onsubmit="return addSchedule(event)">
+                                        這週有空的時間: <br>
+                                        星期一 <br>
+                                        上午 <br/>
+                                        8:00~9:00 <input type="checkbox" name="availableTimeM" value='1'><br>
+                                        9:00~10:00 <input type="checkbox" name="availableTimeM" value='2'><br>
+                                        10:00~11:00 <input type="checkbox" name="availableTimeM" value='3'><br>
+                                        11:00~12:00 <input type="checkbox" name="availableTimeM" value='4'><br>
+                                        下午 <br/>
+                                        12:00~13:00 <input type="checkbox" name="availableTimeM" value='5'><br>
+                                        13:00~14:00 <input type="checkbox" name="availableTimeM" value='6'><br>
+                                        14:00~15:00 <input type="checkbox" name="availableTimeM" value='7'><br>
+                                        15:00~16:00 <input type="checkbox" name="availableTimeM" value='8'><br>
+                                        16:00~17:00 <input type="checkbox" name="availableTimeM" value='9'><br>
+                                        17:00~18:00 <input type="checkbox" name="availableTimeM" value='10'><br>
+                                        18:00~19:00 <input type="checkbox" name="availableTimeM" value='11'><br>
+                                        19:00~20:00 <input type="checkbox" name="availableTimeM" value='12'><br>
+                                        21:00~22:00 <input type="checkbox" name="availableTimeM" value='13'><br>
+                                        22:00~23:00 <input type="checkbox" name="availableTimeM" value='14'><br>
+                                        23:00~24:00 <input type="checkbox" name="availableTimeM" value='15'><br>
+                                        <input type="submit" value="Submit">
+                                    </form>
+                                </div>
                             </div>
-                        </div>
                     </div>
 
                     <div class="col-xs-6">
@@ -259,7 +255,7 @@
                             </div>
                         </div>
                     </div>
--->
+
 
                     <div class='row'>
                         <div class="col-xs-4">
@@ -297,10 +293,10 @@
                         </div>
                     </div>
 -->
-                </div>
+                </div> <!--div block for class row-->
 
 
-
+<!--
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card ">
@@ -324,7 +320,9 @@
                             </div>
                         </div>
                     </div>
+-->
 
+<!--
                     <div class="col-md-6">
                         <div class="card ">
                             <div class="header">
@@ -445,9 +443,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
+-->
+                </div> <!--div block for container-fluid class-->
+            </div> <!--div block for content class-->
+        </div> <!--<!--div block for main-panel class-->
 
 
         <footer class="footer">
@@ -562,19 +561,30 @@
             });
         }
 
-        $('document').ready(function() {
             firebase.auth().onAuthStateChanged(function(user) {
                 var statusDiv = document.getElementById("loginStatus");
-                
                 if (user) {
                     // User is signed in.
                     statusDiv.innerHTML = user.email;
-                    //console.log(user.uid);
-                    db.ref().orderByChild('uid').equalTo(user.uid).on("child_added", function(snapshot) {
+                    db.ref(user.uid).on("child_added", function(snapshot) {
                         //console.log(snapshot.val());
                         //console.log(snapshot.val().availableTime);
-                        $('#weeklySchedule').append(snapshot.val().username);
-                        $('#weeklySchedule').append(snapshot.val().thisWeekSchedule.availableTime);
+                        var accountType = snapshot.val().accountType;
+                        //checking if the accountType in database in 'student' or 'teacher'
+                        var urlIs = document.location.href;
+                        var lastPart = urlIs.split("/").pop();
+                        //checking if the accountType in database in 'student' or 'teacher'
+                        if (accountType === 'teacher' && lastPart != 'dashboardTeacher.html') {
+                            alert(accountType);
+                            document.location.href = 'dashboardTeacher.html';
+                        }
+                        if (accountType === 'student' && lastPart != 'dashboard.html') {
+                            alert(accountType);
+                            document.location.href = 'dashboard.html';
+                        }
+
+                        //$('#weeklySchedule').append(snapshot.val().username);
+                        //$('#weeklySchedule').append(snapshot.val().thisWeekSchedule.availableTime);
                         }, function (errorObject) {
                         console.log("The read failed: " + errorObject.code);
                     });
@@ -584,7 +594,6 @@
                     document.location.href = 'login.html';
                 }
             });
-        });
 
         </script>
 

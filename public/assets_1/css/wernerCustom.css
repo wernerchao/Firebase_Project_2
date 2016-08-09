@@ -50,3 +50,17 @@ hr.light {
 .spacer {
     margin-top: 50px;
 }
+
+p .btnDefault {
+    background-color: lemonchiffon;
+    border-radius: 25px;
+    margin: 0 auto; 
+    border: 0.5px solid white; 
+    max-width: 100px; 
+    color: black;
+    line-height: 2;
+}
+
+p .btnActive {
+    background-color: #f05f40;
+}
