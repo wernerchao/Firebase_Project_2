@@ -602,7 +602,7 @@
                         //console.log('#' + days[i] + 'Schedule');
                         console.log('/scheduled'+ days[i]);
                         db.ref(user.uid +'/scheduledMonday').on("child_added", function(snapshot) { //make the query become a dynamic value
-                                alert('test');
+                                //alert('test'); //CONTINUE FROM HERE
                                 var scheduledTime = snapshot.val().scheduledTime;
                                 //$('#' + days[i] + 'Schedule').append(scheduledTime + '<br>'); //IF PUT HERE DOESN'T WORK, ASK GLEN
                                     for (j=0; j<scheduledTime.length; j++) {

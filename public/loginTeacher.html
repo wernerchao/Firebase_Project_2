@@ -196,43 +196,37 @@
                 var formChannel = form["channelSelect"].value;
                 var formTextarea = form["channelTextarea"].value;
                 var user = firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-                                    // Handle Errors here.
-                                    var errorCode = error.code;
-                                    var errorMessage = error.message;
-                                    alert("Error: " + errorMessage);
+                                var errorCode = error.code;
+                                var errorMessage = error.message;
+                                alert("Error: " + errorMessage);
                         });
-
-                                    firebase.auth().onAuthStateChanged(function (user) {
-                                        if (user) {
-                                            db.ref().child(user.uid).child('userProfile').set({ // create data to userProfile database according to the uid
-                                                uid: user.uid,
-                                                email: email,
-                                                passwordPhoneNumber: password,
-                                                channel: formChannel,
-                                                otherChannel: formTextarea,
-                                                accountType: 'teacher'
-                                    });
-                                            window.open('dashboardTeacher.html');
-                                        }
-                                    });
+                firebase.auth().onAuthStateChanged(function (user) {
+                         if (user) {
+                            db.ref('Teacher').push({ // create data to userProfile database according to the uid
+                                uid: user.uid,
+                                email: email,
+                                passwordPhoneNumber: password,
+                                channel: formChannel,
+                                otherChannel: formTextarea,
+                                accountType: 'teacher'
+                            });
+                            window.open('dashboardTeacher.html');
+                         }
+                });
                 return false;
-            }
+        }
         
-        //Firebase Login Exisiting User
+        //Firebase Login Exisiting User. Re-usable.
         function loginUser(form) {
             var email = form["email"].value;
             var password = form["password"].value;
-            var userPromise = firebase.auth().signInWithEmailAndPassword(email, password).then(function(user) {
-                db.ref(user.uid).on("child_added", function(snapshot) {
-                    var accountType = snapshot.val().accountType
-                    if (accountType === 'teacher') {
-                        alert(accountType);
-                        document.location.href = 'dashboardTeacher.html';
-                    } if (accountType === 'student') {
+            firebase.auth().signInWithEmailAndPassword(email, password).then(function(user) {
+                db.ref('Student').orderByChild('uid').equalTo(user.uid).on("child_added", function(snapshot) {
                         document.location.href = 'dashboard.html';
-                    }
-                });
-                
+                }); 
+                db.ref('Teacher').orderByChild('uid').equalTo(user.uid).on("child_added", function(snapshot) {
+                        document.location.href = 'dashboardTeacher.html';
+                }); 
             }, function(error) {
                 var errorCode = error.code;
                 var errorMessage = error.message;
