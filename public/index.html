@@ -329,7 +329,6 @@
                 databaseURL: "https://project-3373896903953203314.firebaseio.com",
                 storageBucket: "project-3373896903953203314.appspot.com",
             };
-
             //Create Users When Form Is Submitted
             firebase.initializeApp(config);
             var db = firebase.database();
@@ -344,24 +343,22 @@
                                     var errorMessage = error.message;
                                     alert("Error: " + errorMessage);
                                     // ...
-                        });
-
-                                    firebase.auth().onAuthStateChanged(function (user) {
-                                        if (user) {
-                                            db.ref().child(user.uid).child('userProfile').set({
-                                                uid: user.uid,
-                                                email: email,
-                                                passwordPhoneNumber: password,
-                                                channel: formChannel,
-                                                otherChannel: formTextarea,
-                                                accountType: 'student'
-                                    });
-                                            window.open('teachers.html');
-                                        }
-                                    });
+                });
+                firebase.auth().onAuthStateChanged(function (user) {
+                    if (user) {
+                        db.ref().child(user.uid).child('userProfile').set({
+                            uid: user.uid,
+                            email: email,
+                            passwordPhoneNumber: password,
+                            channel: formChannel,
+                            otherChannel: formTextarea,
+                            accountType: 'student'
+                });
+                        window.open('teachers.html');
+                    }
+                });
                 return false;
             }
-
             //Login Status and insert 'account' element if logged in
             firebase.auth().onAuthStateChanged(function (user) {
                 var statusDiv = document.getElementById("loginStatus");
@@ -369,11 +366,20 @@
                 var reservationForm = document.getElementById('contact');
                 if (user) {
                     statusDiv.innerHTML = user.email + "&nbsp&nbsp<input type='button' value='登出' onclick='logoutUser()'></input>";
-                    $('<li><a style="color:black;" class="page-scroll" href="dashboard.html">我的帳號</a></li>').insertBefore(statusDivParent);
+                    $('<li><a style="color:black;" class="page-scroll" onClick="checkUser(\'' + user.uid + '\')">我的帳號</a></li>').insertBefore(statusDivParent);
                     reservationForm.style.display = 'none';
                 }
             });
-
+            function checkUser(uid) {
+                db.ref("/Users/"+uid).on("value", function(snapshot){
+                    var user = snapshot.val();
+                    if(user.accountType == "teacher") {
+                        window.location.assign('dashboardTeacher.html');
+                    } else if (user.accountType == "student") {
+                        window.location.assign('dashboard.html');
+                    }
+                });
+            }
             //Firebaes Logout User
             function logoutUser() {
                 firebase.auth().signOut().then(function() {

@@ -28,8 +28,7 @@
 </head>
 
 <body>
-    
-    <!--Facebook Canvas SDK -->
+    <!--Facebook Canvas SDK 
     <script>
     window.fbAsyncInit = function() {
         FB.init({
@@ -101,9 +100,7 @@
                 // ...
                 });
         }
-    </script>
-
-    
+    </script>-->
 
     <!-- Log In Starts Here -->
     <div class="header-content">
@@ -113,161 +110,73 @@
         <label>Use Facebook To Login</label>
         <button type='submit' onclick="fbSignin()">登入</button>
     </div>
-
-
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">明奈線上日文</h2>
-                    <hr class="primary">
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">明奈線上日文</h2>
+                <hr class="primary">
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <i class="fa fa-4x fa-diamond text-primary sr-icons"></i>
-                            <form onsubmit="return createUser(this)">
-                                <h3>第一次使用者</h3>
-                                <label>請輸入email：</label>
-                                <input type="text" id="email_new" name="email_new" placeholder="email" required>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box">
+                    <i class="fa fa-4x fa-diamond text-primary sr-icons"></i>
+                        <form onsubmit="return createUser(this)">
+                            <h3>第一次使用者</h3>
+                            <label>請輸入email：</label>
+                            <input type="text" id="email_new" name="email_new" placeholder="email" required>
+                            <br></br>
+                            <label>請輸入電話：</label>
+                            <input type="number" id="password_new" name="password_new" placeholder="password" required>
+                            <br></br>
+                            <label>從哪裡知道我們：</label>
+                            <select id="channelSelect">
+                                <option value="0">請選擇</option>
+                                <option value="1">Google 搜尋</option>
+                                <option value="2">Google 廣告</option>
+                                <option value="3">朋友介紹</option>
+                                <option value="4">Facebook</option>
+                                <option value="5">其他管道</option>
+                            </select>
+                            <br></br>
+                            <label for="channelTextarea">其他管道：</label>
+                            <textarea id="channelTextarea" rows="3" placeholder="從XXX部落格看到的"></textarea>
+                            <br></br>
+                            <button type='submit'>登入</button>
+                    </form>
+                    <p class="text-muted">第一次使用者</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box">
+                    <i class="fa fa-4x fa-paper-plane text-primary sr-icons"></i>
+                            <form onsubmit="return loginUser(this)">
+                                <h3>已有帳號使用者</h3>
+                                <label>登入請輸入email和密碼：</label>
                                 <br></br>
-                                <label>請輸入電話：</label>
-                                <input type="number" id="password_new" name="password_new" placeholder="password" required>
+                                <input type="text" id="email" name="email" placeholder="email" required>
                                 <br></br>
-                                <label>從哪裡知道我們：</label>
-                                <select id="channelSelect">
-                                    <option value="0">請選擇</option>
-                                    <option value="1">Google 搜尋</option>
-                                    <option value="2">Google 廣告</option>
-                                    <option value="3">朋友介紹</option>
-                                    <option value="4">Facebook</option>
-                                    <option value="5">其他管道</option>
-                                </select>
-                                <br></br>
-                                <label for="channelTextarea">其他管道：</label>
-                                <textarea id="channelTextarea" rows="3" placeholder="從XXX部落格看到的"></textarea>
+                                <input type="password" id="password" name="password" placeholder="password" required>
                                 <br></br>
                                 <button type='submit'>登入</button>
-                        </form>
-                        <p class="text-muted">第一次使用者</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <i class="fa fa-4x fa-paper-plane text-primary sr-icons"></i>
-                                <form onsubmit="return loginUser(this)">
-                                    <h3>已有帳號使用者</h3>
-                                    <label>登入請輸入email和密碼：</label>
-                                    <br></br>
-                                    <input type="text" id="email" name="email" placeholder="email" required>
-                                    <br></br>
-                                    <input type="password" id="password" name="password" placeholder="password" required>
-                                    <br></br>
-                                    <button type='submit'>登入</button>
-                                </form>
-                        <p class="text-muted">已有帳號使用者</p>
-                    </div>
+                            </form>
+                    <p class="text-muted">已有帳號使用者</p>
                 </div>
             </div>
         </div>
-
-    
-    <!--FIREBASE-->
+    </div>
     <!--<script src="dist/js/bootstrap.js"></script>-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    
+    <!--FIREBASE-->
     <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+    <script src="js/firebaseInit.js"></script>
     <script>
-    //Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyCTAD_8dK9w5MYRvPNbHr7isUGcIZNtDrU",
-            authDomain: "project-3373896903953203314.firebaseapp.com",
-            databaseURL: "https://project-3373896903953203314.firebaseio.com",
-            storageBucket: "project-3373896903953203314.appspot.com",
-        };
-        //Firebase Create New User
-        firebase.initializeApp(config);
-        var db = firebase.database();
-        function createUser(form) {
-                var email = form["email_new"].value;
-                var password = form["password_new"].value;
-                var formChannel = form["channelSelect"].value;
-                var formTextarea = form["channelTextarea"].value;
-                var user = firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-                                    // Handle Errors here.
-                                    var errorCode = error.code;
-                                    var errorMessage = error.message;
-                                    alert("Error: " + errorMessage);
-                        });
-
-                                    firebase.auth().onAuthStateChanged(function (user) {
-                                        if (user) {
-                                            db.ref('Student').push({ // create data to userProfile database according to the uid
-                                                uid: user.uid,
-                                                email: email,
-                                                passwordPhoneNumber: password,
-                                                channel: formChannel,
-                                                otherChannel: formTextarea,
-                                                accountType: 'student'
-                                    });
-                                            window.open('dashboard.html');
-                                        }
-                                    });
-                return false;
-            }
-        
-        //Firebase Login Exisiting User. Re-usable.
-        function loginUser(form) {
-            var email = form["email"].value;
-            var password = form["password"].value;
-            firebase.auth().signInWithEmailAndPassword(email, password).then(function(user) {
-                db.ref('Student').orderByChild('uid').equalTo(user.uid).on("child_added", function(snapshot) {
-                        document.location.href = 'dashboard.html';
-                }); 
-                db.ref('Teacher').orderByChild('uid').equalTo(user.uid).on("child_added", function(snapshot) {
-                        document.location.href = 'dashboardTeacher.html';
-                }); 
-            }, function(error) {
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                alert("Error: " + errorMessage);
-            });
-            event.preventDefault();
-            return false;
-        }
-
-        //Firebaes Logout User
-        function logoutUser() {
-            firebase.auth().signOut().then(function() {
-                alert("Sign-out successful.");
-            }, function(error) {
-                alert("An error happened.");
-            });
-        }
-        
-        //Login Status Check, if logged in, then show email on top left
-        firebase.auth().onAuthStateChanged(function (user) {
-            var statusDiv = document.getElementById("loginStatus");
-            if (user) {
-                //document.location.href = 'dashboard.html';
-                //window.open('dashboard.html');
-                statusDiv.innerHTML = user.email + "<input type='button' value='Log out' onclick='logoutUser()'></input>";
-            } else {
-                // show login page
-                statusDiv.innerHTML = "Not logged in";
-            }
-        })
-
-        //Clear input field when form is submitted
-        $('form').on('submit', function() {
-            $('#email_new').val('');
-            $('#password_new').val('');
-            $('#email').val('');
-            $('#password').val('');
-        });
-        </script>
+    firebase.initializeApp(config);
+    </script>
+    <script src="js/loginAll.js"></script>
+    <script src="js/createStudent.js"></script>
 </body>
 
 </html>

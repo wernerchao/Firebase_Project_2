@@ -452,6 +452,18 @@ body > .navbar-collapse[data-color="purple"]:after {
   background-size: 150% 150%;
 }
 
+.sidebar[data-color="sakura"]:after,
+body > .navbar-collapse[data-color="sakura"]:after {
+  background: #ee4b28;
+  background: -moz-linear-gradient(top, #ee4b28 0%, #d64324 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ee4b28), color-stop(100%, #d64324));
+  background: -webkit-linear-gradient(top, #ee4b28 0%, #d64324 100%);
+  background: -o-linear-gradient(top, #ee4b28 0%, #d64324 100%);
+  background: -ms-linear-gradient(top, #ee4b28 0%, #d64324 100%);
+  background: linear-gradient(to bottom, #ee4b28 0%, #ef5d3d 100%);
+  background-size: 150% 150%;
+}
+
 .main-panel {
   background: rgba(203, 203, 210, 0.15);
   position: relative;

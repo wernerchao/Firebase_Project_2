@@ -1,271 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+        <title>Login Page</title>
 
-    <title>Login Page</title>
+        <!-- Bootstrap Core CSS -->
+        <link rel="stylesheet" href="assets_1/css/bootstrap.min.css" type="text/css">
 
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="assets_1/css/bootstrap.min.css" type="text/css">
+        <!-- Custom Fonts -->
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="assets_1/font-awesome/css/font-awesome.min.css" type="text/css">
 
-    <!-- Custom Fonts -->
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="assets_1/font-awesome/css/font-awesome.min.css" type="text/css">
+        <!-- Plugin CSS -->
+        <!--<link rel="stylesheet" href="css/magnific-popup.css" type="text/css">-->
 
-    <!-- Plugin CSS -->
-    <!--<link rel="stylesheet" href="css/magnific-popup.css" type="text/css">-->
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="assets_1/css/creative.css" type="text/css">
+        <!--<link rel="stylesheet" href="css/wernerCustom.css" type="text/css">-->
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets_1/css/creative.css" type="text/css">
-    <!--<link rel="stylesheet" href="css/wernerCustom.css" type="text/css">-->
+    </head>
 
-</head>
-
-<body>
-    
-    <!--Facebook Canvas SDK -->
-    <!--<script>
-    window.fbAsyncInit = function() {
-        FB.init({
-        appId      : '548692905319080',
-        xfbml      : true,
-        version    : 'v2.7'
-        });
-    
-    // Place following code after FB.init call.
-        function onLogin(response) {
-            if (response.status == 'connected') {
-                FB.api('/me?fields=first_name', function(data) {
-                var welcomeBlock = document.getElementById('fb-welcome');
-                welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
-                });
-            }
-        }
-
-        FB.getLoginStatus(function(response) {
-        // Check login status on load, and if the user is
-        // already logged in, go directly to the welcome message.
-            if (response.status == 'connected') {
-                onLogin(response);
-            } else {
-                // Otherwise, show Login dialog first.
-                FB.login(function(response) {
-                onLogin(response);
-                }, {scope: 'user_friends, email'});
-            }
-        });
-
-    // ADD ADDITIONAL FACEBOOK CODE HERE
-    };
-
-        (function(d, s, id){
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {return;}
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-
-        //Get permission from users to get their information [Facebook Provider Object]
-        var provider = new firebase.auth.FacebookAuthProvider();
-        provider.addScope('user_birthday');
-        provider.addScope('education_history');
-        provider.addScope('user_likes');
-        provider.addScope('user_location');
-        provider.addScope('user_friends');
-
-        function fbSignin() {
-            firebase.auth().signInWithRedirect(provider);
-            firebase.auth().getRedirectResult().then(function(result) {
-                if (result.credential) {
-                    // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-                    var token = result.credential.accessToken;
-                    // ...
+    <body>
+        
+        <!--Facebook Canvas SDK -->
+        <!--<script>
+        window.fbAsyncInit = function() {
+            FB.init({
+            appId      : '548692905319080',
+            xfbml      : true,
+            version    : 'v2.7'
+            });
+        
+        // Place following code after FB.init call.
+            function onLogin(response) {
+                if (response.status == 'connected') {
+                    FB.api('/me?fields=first_name', function(data) {
+                    var welcomeBlock = document.getElementById('fb-welcome');
+                    welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
+                    });
                 }
-                // The signed-in user info.
-                var user = result.user;
-            }).catch(function(error) {
-                // Handle Errors here.
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                // The email of the user's account used.
-                var email = error.email;
-                // The firebase.auth.AuthCredential type that was used.
-                var credential = error.credential;
-                // ...
-                });
-        }
-    </script> -->
+            }
 
-    
+            FB.getLoginStatus(function(response) {
+            // Check login status on load, and if the user is
+            // already logged in, go directly to the welcome message.
+                if (response.status == 'connected') {
+                    onLogin(response);
+                } else {
+                    // Otherwise, show Login dialog first.
+                    FB.login(function(response) {
+                    onLogin(response);
+                    }, {scope: 'user_friends, email'});
+                }
+            });
 
-    <!-- Log In Starts Here -->
-    <div class="header-content">
-        <a href='index.html'>首頁</a>
-        <div id="loginStatus">Not logged in</div>
-        <h3>Facebook Login</h3>
-        <label>Use Facebook To Login</label>
-        <button type='submit' onclick="fbSignin()">登入</button>
-    </div>
-
-
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">明奈線上日文 - 想成為我們平台上的老師嗎？</h2>
-                    <hr class="primary">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <i class="fa fa-4x fa-diamond text-primary sr-icons"></i>
-                            <form onsubmit="return createUser(this)">
-                                <h3>申請成為日文老師</h3>
-                                <label>請輸入email：</label>
-                                <input type="text" id="email_new" name="email_new" placeholder="email" required>
-                                <br></br>
-                                <label>請輸入電話：</label>
-                                <input type="number" id="password_new" name="password_new" placeholder="password" required>
-                                <br></br>
-                                <label>從哪裡知道我們：</label>
-                                <select id="channelSelect">
-                                    <option value="0">請選擇</option>
-                                    <option value="1">Google 搜尋</option>
-                                    <option value="2">Google 廣告</option>
-                                    <option value="3">朋友介紹</option>
-                                    <option value="4">Facebook</option>
-                                    <option value="5">其他管道</option>
-                                </select>
-                                <br></br>
-                                <label for="channelTextarea">其他管道：</label>
-                                <textarea id="channelTextarea" rows="3" placeholder="從XXX部落格看到的"></textarea>
-                                <br></br>
-                                <button type='submit'>登入</button>
-                        </form>
-                        <p class="text-muted">成為平台上的日文老師吧</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <i class="fa fa-4x fa-paper-plane text-primary sr-icons"></i>
-                                <form onsubmit="return loginUser(this)">
-                                    <h3>老師登入</h3>
-                                    <label>登入請輸入email和密碼：</label>
-                                    <br></br>
-                                    <input type="text" id="email" name="email" placeholder="email" required>
-                                    <br></br>
-                                    <input type="password" id="password" name="password" placeholder="password" required>
-                                    <br></br>
-                                    <button type='submit'>登入</button>
-                                </form>
-                        <p class="text-muted">已有帳號使用者</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-    <!--FIREBASE-->
-    <!--<script src="dist/js/bootstrap.js"></script>-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
-    <script>
-        //Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyCTAD_8dK9w5MYRvPNbHr7isUGcIZNtDrU",
-            authDomain: "project-3373896903953203314.firebaseapp.com",
-            databaseURL: "https://project-3373896903953203314.firebaseio.com",
-            storageBucket: "project-3373896903953203314.appspot.com",
+        // ADD ADDITIONAL FACEBOOK CODE HERE
         };
 
-        //Firebase Create New User
-        firebase.initializeApp(config);
-        var db = firebase.database();
+            (function(d, s, id){
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
 
-        function createUser(form) {
-                var email = form["email_new"].value;
-                var password = form["password_new"].value;
-                var formChannel = form["channelSelect"].value;
-                var formTextarea = form["channelTextarea"].value;
-                var user = firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-                                var errorCode = error.code;
-                                var errorMessage = error.message;
-                                alert("Error: " + errorMessage);
-                        });
-                firebase.auth().onAuthStateChanged(function (user) {
-                         if (user) {
-                            db.ref('Teacher').push({ // create data to userProfile database according to the uid
-                                uid: user.uid,
-                                email: email,
-                                passwordPhoneNumber: password,
-                                channel: formChannel,
-                                otherChannel: formTextarea,
-                                accountType: 'teacher'
-                            });
-                            window.open('dashboardTeacher.html');
-                         }
-                });
-                return false;
-        }
-        
-        //Firebase Login Exisiting User. Re-usable.
-        function loginUser(form) {
-            var email = form["email"].value;
-            var password = form["password"].value;
-            firebase.auth().signInWithEmailAndPassword(email, password).then(function(user) {
-                db.ref('Student').orderByChild('uid').equalTo(user.uid).on("child_added", function(snapshot) {
-                        document.location.href = 'dashboard.html';
-                }); 
-                db.ref('Teacher').orderByChild('uid').equalTo(user.uid).on("child_added", function(snapshot) {
-                        document.location.href = 'dashboardTeacher.html';
-                }); 
-            }, function(error) {
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                alert("Error: " + errorMessage);
-            });
-            event.preventDefault();
-            return false;
-        }
-        
-        //Firebaes Logout User
-        function logoutUser() {
-            firebase.auth().signOut().then(function() {
-                alert("Sign-out successful.");
-            }, function(error) {
-                alert("An error happened.");
-            });
-        }
-        
-        //Login Status Check, if logged in, then show email on top left
-        firebase.auth().onAuthStateChanged(function (user) {
-            var statusDiv = document.getElementById("loginStatus");
-            if (user) {
-                //document.location.href = 'dashboardTeacher.html';
-                statusDiv.innerHTML = user.email + "<input type='button' value='Log out' onclick='logoutUser()'></input>";
-            } else {
-                // show login page
-                statusDiv.innerHTML = "Not logged in";
+            //Get permission from users to get their information [Facebook Provider Object]
+            var provider = new firebase.auth.FacebookAuthProvider();
+            provider.addScope('user_birthday');
+            provider.addScope('education_history');
+            provider.addScope('user_likes');
+            provider.addScope('user_location');
+            provider.addScope('user_friends');
+
+            function fbSignin() {
+                firebase.auth().signInWithRedirect(provider);
+                firebase.auth().getRedirectResult().then(function(result) {
+                    if (result.credential) {
+                        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+                        var token = result.credential.accessToken;
+                        // ...
+                    }
+                    // The signed-in user info.
+                    var user = result.user;
+                }).catch(function(error) {
+                    // Handle Errors here.
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    // The email of the user's account used.
+                    var email = error.email;
+                    // The firebase.auth.AuthCredential type that was used.
+                    var credential = error.credential;
+                    // ...
+                    });
             }
-        })
+        </script> -->
 
-        //Clear input field when form is submitted
-        $('form').on('submit', function() {
-            $('#email_new').val('');
-            $('#password_new').val('');
-            $('#channelTextarea').val('');
-            $('#email').val('');
-            $('#password').val('');
-        });
+        <!-- Log In Starts Here -->
+        <div class="header-content">
+            <a href='index.html'>首頁</a>
+            <div id="loginStatus">Not logged in</div>
+            <h3>Facebook Login</h3>
+            <label>Use Facebook To Login</label>
+            <button type='submit' onclick="fbSignin()">登入</button>
+        </div>
+
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading">明奈線上日文 - 想成為我們平台上的老師嗎？</h2>
+                        <hr class="primary">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="service-box">
+                            <i class="fa fa-4x fa-diamond text-primary sr-icons"></i>
+                                <form onsubmit="return createUser(this)">
+                                    <h3>申請成為日文老師</h3>
+                                    <label>請輸入email：</label>
+                                    <input type="text" id="email_new" name="email_new" placeholder="email" required>
+                                    <br></br>
+                                    <label>請輸入電話：</label>
+                                    <input type="number" id="password_new" name="password_new" placeholder="password" required>
+                                    <br></br>
+                                    <label>從哪裡知道我們：</label>
+                                    <select id="channelSelect">
+                                        <option value="0">請選擇</option>
+                                        <option value="1">Google 搜尋</option>
+                                        <option value="2">Google 廣告</option>
+                                        <option value="3">朋友介紹</option>
+                                        <option value="4">Facebook</option>
+                                        <option value="5">其他管道</option>
+                                    </select>
+                                    <br></br>
+                                    <label for="channelTextarea">其他管道：</label>
+                                    <textarea id="channelTextarea" rows="3" placeholder="從XXX部落格看到的"></textarea>
+                                    <br></br>
+                                    <button type='submit'>登入</button>
+                            </form>
+                            <p class="text-muted">成為平台上的日文老師吧</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="service-box">
+                            <i class="fa fa-4x fa-paper-plane text-primary sr-icons"></i>
+                                    <form onsubmit="return loginUser(this)">
+                                        <h3>老師登入</h3>
+                                        <label>登入請輸入email和密碼：</label>
+                                        <br></br>
+                                        <input type="text" id="email" name="email" placeholder="email" required>
+                                        <br></br>
+                                        <input type="password" id="password" name="password" placeholder="password" required>
+                                        <br></br>
+                                        <button type='submit'>登入</button>
+                                    </form>
+                            <p class="text-muted">已有帳號使用者</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <!--<script src="dist/js/bootstrap.js"></script>-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <!--FIREBASE-->
+        <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+        <script src="js/firebaseInit.js"></script>
+        <script>
+            firebase.initializeApp(config);
         </script>
-</body>
-
+        <script src="js/loginAll.js"></script>
+        <script src="js/createTeacher.js"></script>
+    </body>
 </html>
