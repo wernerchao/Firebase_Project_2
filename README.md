@@ -1,2 +1,2 @@
 # Firebase_Project_2
-New Firebase Project with New Template
+This is a testing repository. Please do not download.
